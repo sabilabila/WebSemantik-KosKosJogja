@@ -1,0 +1,948 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja#"
+     xml:base="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:kosjogja="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#"
+     xmlns:kosjogja1="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl">
+        <rdfs:comment>PREFIX : &lt;http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+SELECT ?Nama_Kos ?Jenis_Kos ?Tipe_Bayar ?LokasiKos
+WHERE{
+?Kos :berada_di ?Lokasi.
+?Kos :nama_kos ?Nama_Kos.
+?Kos :jenis_kos ?Jenis_Kos.
+?Kos :dibayar_setiap ?WaktuBayar.
+?WaktuBayar :tipe_bayar ?Tipe_Bayar.
+?Lokasi :lokasi ?LokasiKos.
+FILTER(regex(str(?Jenis_Kos),&quot;kos putri&quot;))
+}
+
+
+PREFIX : &lt;http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+SELECT ?Nama_Kos ?Jenis_Kos ?FasilitasKos ?Tipe_Bayar ?LokasiKos ?HargaKos
+WHERE{
+?Kos :berada_di ?Lokasi.
+?Kos :nama_kos ?Nama_Kos.
+?Kos :jenis_kos ?Jenis_Kos.
+?Kos :memiliki_fasilitas ?Fasilitas.
+?Fasilitas :fasilitas ?FasilitasKos.
+?Kos :dibayar_setiap ?WaktuBayar.
+?WaktuBayar :tipe_bayar ?Tipe_Bayar.
+?Lokasi :lokasi ?LokasiKos.
+?Kos :memiliki_harga ?Harga.
+?Harga :harga ?HargaKos.
+FILTER(regex(str(?Jenis_Kos),&quot;kos putri&quot;))
+}</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#berada_di -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#berada_di">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Lokasi"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#dibayar_setiap -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#dibayar_setiap">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#WaktuBayar"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#memiliki_fasilitas -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#memiliki_fasilitas">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#memiliki_harga -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#memiliki_harga">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#fasilitas -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#fasilitas">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#harga -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#harga">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#jenis_kos -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#jenis_kos">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#lokasi -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#lokasi">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Lokasi"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#nama_kos -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#nama_kos">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#tipe_bayar -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#tipe_bayar">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#WaktuBayar"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#KosJogja"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#KosJogja"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#KosJogja"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#KosJogja -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#KosJogja"/>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Lokasi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Lokasi">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#KosJogja"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#WaktuBayar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#WaktuBayar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#KosJogja"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi luar, kasur, wifi, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas10">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi luar</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas11">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi dalam, kasur, ac, wifi, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas12">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi luar, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas13 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas13">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi dalam, kasur, ac, wifi, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas14 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas14">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi dalam, kasur, wifi, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas15 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas15">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi dalam, kasur, wifi</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas16 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas16">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kasur, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas17 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas17">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi dalam, kasur, ac, wifi, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas18 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas18">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi dalam, kasur, wifi, askes 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas19 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas19">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi dalam, kasur, ac, wifi, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi dalam, kasur, wifi, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi dalam, kasur, ac, wifi, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kasur, kamar mandi dalam, ac, wifi, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas5">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi luar, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas6">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi dalam, kasur, ac, wifi, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas7">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi dalam, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas8">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kamar mandi dalam, kasur, ac, wifi, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas9">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Fasilitas"/>
+        <kosjogja1:fasilitas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wifi, akses 24 jam</kosjogja1:fasilitas>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">450.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos10">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6.600.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos11">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">16.800.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos12">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">360.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos13 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos13">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2.200.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos14 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos14">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.850.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos15 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos15">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.100.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos16 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos16">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3.200.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos17 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos17">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9.000.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos18 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos18">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8.250.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos19 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos19">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">18.700.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">850.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.350.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.300.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos5">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">550.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos6">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.800.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos7">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.650.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos8">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11.970.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos9">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Harga"/>
+        <kosjogja1:harga rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2.850.000</kosjogja1:harga>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Banguntapan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Banguntapan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Lokasi"/>
+        <kosjogja1:lokasi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Banguntapan</kosjogja1:lokasi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Catur_Tunggal -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Catur_Tunggal">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Lokasi"/>
+        <kosjogja1:lokasi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Catur Tunggal</kosjogja1:lokasi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Depok -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Depok">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Lokasi"/>
+        <kosjogja1:lokasi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Depok</kosjogja1:lokasi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Gedong_Tengen -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Gedong_Tengen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Lokasi"/>
+        <kosjogja1:lokasi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gedong Tengen</kosjogja1:lokasi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Gondokusuman -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Gondokusuman">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Lokasi"/>
+        <kosjogja1:lokasi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gondokusuman</kosjogja1:lokasi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Alinea -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Alinea">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Gondokusuman"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#tahunan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas19"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos19"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putri</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Alinea Gondokusuman Yogyakarta</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Aurora -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Aurora">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Depok"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#bulanan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas4"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos4"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putra</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Putra Aurora Tipe A Depok Sleman Yogyakarta</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Costin -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Costin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Ngemplak"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Depok"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas17"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos17"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putri</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Costin Tipe C Depok Sleman</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_DClerr -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_DClerr">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Gondokusuman"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#bulanan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas12"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos12"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putri</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost D&apos;Clerr Sagan Gondokusuman Yogyakarta 842DC</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_First -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_First">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Catur_Tunggal"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#3_bulan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas15"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos15"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putri</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost First Seturan Depok Sleman</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Griya -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Griya">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Depok"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#6_bulan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas9"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos9"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putra</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Griya Faz&apos;ma Depok Sleman</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Kania -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Kania">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Mlati"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#tahunan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas18"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos18"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putri</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Kania Mlati Sleman Yogyakarta</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Kuning -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Kuning">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Gondokusuman"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#bulanan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas5"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos5"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putra</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Kuning Khoir Gondokusuman Yogyakarta 563KK</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Ni -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Ni">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Ngemplak"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#6_bulan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas16"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos16"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putri</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Ni Ngemplak Sleman</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Oemah -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Oemah">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Ngaglik"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#tahunan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas10"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos10"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putra</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Oemah Abi Tipe A Condongcatur Sleman Yogyakarta</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Prima -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Prima">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Gedong_Tengen"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#bulanan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas1"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos1"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos campur</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Prima Homestay Dekat Malioboro Gedong Tengen Yogyakarta 319PH</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Puri -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Puri">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Depok"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#tahunan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas11"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos11"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putra</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Puri Phunis Depok Sleman</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Putra_Muslim -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Putra_Muslim">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Banguntapan"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#3_bulan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas7"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos7"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putra</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Putra Muslim Pondok Biru Banguntapan Bantul</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Putri_Astika -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Putri_Astika">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Depok"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#3_bulan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas14"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos14"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putri</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Putri Astika Depok Sleman Yogyakarta</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Singgahsini -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Singgahsini">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Depok"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#3_bulan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas6"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos6"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putra</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Singgahsini Pandega Duta Tipe A Jakal Yogyakarta 012WU</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Solaris -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Solaris">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Depok"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#bulanan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas13"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos13"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putri</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Solaris Depok Sleman</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Wisma -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Wisma">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Depok"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#bulanan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas2"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos2"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos campur</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Wisma Hapsari Tipe C Depok Sleman 137WS</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Wisma_Y -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos_Wisma_Y">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Mlati"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#6_bulan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas8"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos8"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos putra</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Wisma Yudhistira Tipe B Mlati Sleman Yogyakarta</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kost_Pak_Siswanto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kost_Pak_Siswanto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Kos"/>
+        <kosjogja1:berada_di rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Ngaglik"/>
+        <kosjogja1:dibayar_setiap rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#bulanan"/>
+        <kosjogja1:memiliki_fasilitas rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#Fasilitas3"/>
+        <kosjogja1:memiliki_harga rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl#HargaKos3"/>
+        <kosjogja1:jenis_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kos campur</kosjogja1:jenis_kos>
+        <kosjogja1:nama_kos rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kost Pak Siswanto Tipe B Ngaglik Sleman</kosjogja1:nama_kos>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Mlati -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Mlati">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Lokasi"/>
+        <kosjogja1:lokasi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mlati</kosjogja1:lokasi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Ngaglik -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Ngaglik">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Lokasi"/>
+        <kosjogja1:lokasi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ngaglik</kosjogja1:lokasi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Ngemplak -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Ngemplak">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#Lokasi"/>
+        <kosjogja1:lokasi rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ngemplak</kosjogja1:lokasi>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#bulanan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#bulanan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#WaktuBayar"/>
+        <kosjogja1:tipe_bayar rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bulanan</kosjogja1:tipe_bayar>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#tahunan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#tahunan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#WaktuBayar"/>
+        <kosjogja1:tipe_bayar rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tahunan</kosjogja1:tipe_bayar>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#3_bulan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#3_bulan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#WaktuBayar"/>
+        <kosjogja1:tipe_bayar rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3 Bulan</kosjogja1:tipe_bayar>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#6_bulan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#6_bulan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sabila/ontologies/2021/0/kosjogja.owl.owl#WaktuBayar"/>
+        <kosjogja1:tipe_bayar rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6 Bulan</kosjogja1:tipe_bayar>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
